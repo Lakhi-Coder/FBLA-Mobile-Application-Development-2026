@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "108027945116",
+    "project_id": "fbla-mobile-application-327fc",
+    "storage_bucket": "fbla-mobile-application-327fc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108027945116:android:f7acf183b554fd91170d59",
+        "android_client_info": {
+          "package_name": "com.LakhiteshVarmaJagadabhi.fbla.fbla_connect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLBYucW1gBGhAdCvA35HX8T2fGU2JUDKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108027945116:android:5de9ec113a7a0c1c170d59",
+        "android_client_info": {
+          "package_name": "com.example.assets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLBYucW1gBGhAdCvA35HX8T2fGU2JUDKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
