@@ -1,11 +1,10 @@
 import 'package:fbla_connect/entities/color_pallete.dart';
 import 'package:fbla_connect/firebase_options.dart';
 import 'package:fbla_connect/services/authentication/auth_check.dart';
-import 'package:fbla_connect/services/events/events.dart'; // Add this import
+import 'package:fbla_connect/services/events/events.dart'; 
 import 'package:fbla_connect/services/events/seed_events.dart';
 import 'package:fbla_connect/tabs/calendar_tab.dart';
 import 'package:fbla_connect/tabs/getstarted_tab.dart';
-import 'package:fbla_connect/tabs/home_tab.dart';
 import 'package:fbla_connect/tabs/main_navigation.dart';
 import 'package:fbla_connect/tabs/news_tab.dart';
 import 'package:fbla_connect/tabs/profile_tab.dart';
@@ -17,7 +16,6 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform, 
@@ -52,11 +50,11 @@ class FblaMobileApp extends StatelessWidget {
         home: Scaffold(body: const AuthCheck()),
         routes: {
           '/profile': (context) => const ProfileTab(),
-          '/calendar': (context) => const CalendarTab(),
-          '/resources': (context) => const ResourcesTab(),
+          '/calendar': (context) => const CalendarTab(), 
+          '/resources': (context) => const ResourcesTab(), 
           '/social': (context) => const SocialTab(), 
           '/news': (context) => const NewsTab(), 
-          '/getstarted': (context) => GetstartedTab(),
+          '/getstarted': (context) => GetstartedTab(), 
           '/main': (context) => const MainNavigation(), 
         },
       ),

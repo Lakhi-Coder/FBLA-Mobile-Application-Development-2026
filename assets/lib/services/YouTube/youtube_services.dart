@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:fbla_connect/services/YouTube/youtube_API.dart';
 import 'package:http/http.dart' as http;
 
 class YouTubeService {
-  final String _apiKey = 'AIzaSyAECW_vUPuQX6QrzvuTHqT56HwSSNTWIdE///'; 
+  final String? _apiKey = YOUTUBE_API_KEY; 
   final String _baseUrl = 'https://www.googleapis.com/youtube/v3';
 
   Future<List<YouTubeVideo>> searchFBLAVideos({int maxResults = 10}) async {
@@ -17,7 +18,7 @@ class YouTubeService {
         final data = json.decode(response.body);
         final videoIds = data['items'].map((item) => item['id']['videoId']).join(',');
 
-        return await _getVideoDetails(videoIds);
+        return await _getVideoDetails(videoIds); 
       }
       return [];
     } catch (e) {
