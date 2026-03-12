@@ -100,8 +100,8 @@ class HomeTab extends StatelessWidget {
         SizedBox(height: 12),
         _buildEventCard(
           title: 'State Leadership Conference',
-          date: 'March 15, 2026',
-          location: 'Raleigh, NC',
+          date: 'March 20, 2026',
+          location: 'Raleigh Convention Center, NC',
           source: 'NC FBLA Calendar',
         ),
         SizedBox(height: 8),
@@ -114,8 +114,8 @@ class HomeTab extends StatelessWidget {
         SizedBox(height: 8),
         _buildEventCard(
           title: 'Mobile App Workshop',
-          date: 'January 28, 2026',
-          location: 'School Library',
+          date: 'January 15, 2026',
+          location: 'School Computer Lab',
           source: 'Chapter Event',
         ),
       ],

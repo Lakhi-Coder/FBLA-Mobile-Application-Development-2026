@@ -260,7 +260,7 @@ class _ProfileTabState extends State<ProfileTab> {
         backgroundColor: uniqueTertiaryColor,
         actions: [
           IconButton(
-            icon: Icon(_isEditing ? Icons.close : Icons.edit),
+            icon: Icon(_isEditing ? Icons.close : Icons.edit, color: Colors.white,),
             onPressed: () {
               setState(() => _isEditing = !_isEditing);
             },
@@ -601,16 +601,7 @@ class _ProfileTabState extends State<ProfileTab> {
               enabled: _isEditing,
             ),
           
-          if (_isEditing)
-            _buildDropdownRow(
-              'Role',
-              _selectedRole,
-              _roles,
-              Icons.work,
-              (value) => setState(() => _selectedRole = value),
-            )
-          else
-            _buildInfoRow(
+          _buildInfoRow(
               'Role',
               user.role,
               Icons.work,

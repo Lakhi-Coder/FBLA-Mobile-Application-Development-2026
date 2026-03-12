@@ -4,6 +4,7 @@ import 'package:fbla_connect/services/events/events.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/event_model.dart';
 
@@ -217,14 +218,9 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
                   
                   const SizedBox(height: 16),
                   
-                  // Share button
                   OutlinedButton.icon(
                     onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Share feature coming soon!'), 
-                        ),
-                      );
+                      _shareEvent(event); 
                     },
                     icon: const Icon(Icons.share, color: uniqueTertiaryColor,),
                     label: const CustomNormalText(
@@ -246,6 +242,16 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
       ),
     );
   }
+  void _shareEvent(FBLAEvent event) {
+    final String shareText = '''
+      ${event.title}
+      ${_formatFullDate(event.date)} at ${_formatTime(event.date)}
+      ${event.location}
+      ${event.registeredUsers.length}/${event.maxParticipants} registered
+      ${event.description}
+      ''';
+          SharePlus.instance.share(ShareParams(text: shareText, subject: 'FBLA Event: ${event.title}'));
+      }
 
   Widget _buildDetailRow(IconData icon, String label, String value,
       {bool isLink = false, String? link, Widget? child}) {
