@@ -1,3 +1,5 @@
+import 'package:fbla_connect/entities/color_pallete.dart';
+import 'package:fbla_connect/entities/widgets/custom_text.dart';
 import 'package:fbla_connect/services/events/events.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +33,7 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
     final statusColor = event.getStatusColor();
 
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: MediaQuery.of(context).size.height * 0.85,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -78,7 +80,7 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
                           style: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF003366),
+                            color: uniqueTertiaryColor,
                           ),
                         ),
                       ),
@@ -106,7 +108,6 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
                   
                   const SizedBox(height: 8),
                   
-                  // Event type chip
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -127,7 +128,6 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
                   
                   const SizedBox(height: 24),
                   
-                  // Details grid
                   _buildDetailRow(
                     Icons.calendar_today,
                     'Date',
@@ -220,20 +220,24 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
                   // Share button
                   OutlinedButton.icon(
                     onPressed: () {
-                      // TODO: Implement share functionality
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text('Share feature coming soon!'),
+                          content: Text('Share feature coming soon!'), 
                         ),
                       );
                     },
-                    icon: const Icon(Icons.share),
-                    label: const Text('Share Event'),
+                    icon: const Icon(Icons.share, color: uniqueTertiaryColor,),
+                    label: const CustomNormalText(
+                      text: 'Share Event',
+                      color: uniqueTertiaryColor,
+                      fontSize: 16,
+                    ),
                     style: OutlinedButton.styleFrom(
                       minimumSize: const Size.fromHeight(50),
                       side: const BorderSide(color: Color(0xFF003366)),
                     ),
                   ),
+                  SizedBox(height: 16),
                 ],
               ),
             ),
@@ -390,12 +394,13 @@ class _EventDetailsSheetState extends State<EventDetailsSheet> {
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
+        backgroundColor: primaryColor,
         title: const Text('Cancel Registration'),
         content: Text('Are you sure you want to cancel your registration for ${event.title}?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('No'),
+            child: const Text('No', style: TextStyle(color: Colors.grey),),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),

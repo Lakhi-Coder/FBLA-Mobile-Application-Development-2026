@@ -45,3 +45,24 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    
+    // Firebase BoM (Bill of Materials) - ensures compatible versions
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+    
+    // Firebase Cloud Messaging
+    implementation 'com.google.firebase:firebase-messaging'
+    
+    // Firebase Analytics (recommended for FCM)
+    implementation 'com.google.firebase:firebase-analytics'
+    
+    // For local notifications (Android)
+    implementation 'androidx.core:core-ktx:1.12.0'
+    
+    // For scheduled notifications (work manager)
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
+    
+    // For multidex support (if minSdk < 21, but we set to 21 so optional)
+    implementation 'androidx.multidex:multidex:2.0.1'
+}

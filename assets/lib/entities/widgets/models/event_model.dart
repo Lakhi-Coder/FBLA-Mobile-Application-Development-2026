@@ -89,7 +89,7 @@ class FBLAEvent {
       registrationDeadline: (data['registrationDeadline'] as Timestamp?)?.toDate() ?? DateTime.now(),
       maxParticipants: data['maxParticipants'] ?? 100,
       registeredUsers: List<String>.from(data['registeredUsers'] ?? []),
-      organizer: data['organizer'] ?? '',
+      organizer: data['organizer'] ?? '', 
       isVirtual: data['isVirtual'] ?? false,
       meetingLink: data['meetingLink'],
       imageUrl: data['imageUrl'],

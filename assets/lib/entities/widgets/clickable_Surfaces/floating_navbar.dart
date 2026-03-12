@@ -31,17 +31,20 @@ class _FloatingNavBarState extends State<FloatingNavBar> with SingleTickerProvid
       duration: const Duration(milliseconds: 300),
     );
 
-    _animations = List.generate(5, (index) {
+    _animations = List.generate(6, (index) {
+      double start = index * 0.2;     
+      double end = (start + 0.2).clamp(0.0, 1.0); 
       return Tween<double>(begin: 0, end: 1).animate(
         CurvedAnimation(
           parent: _animationController,
-          curve: Interval(index * 0.15, 0.6 + index * 0.1, curve: Curves.easeOutBack),
+          curve: Interval(start, end, curve: Curves.easeOutBack),
         ),
       );
     });
 
     _animationController.forward();
   }
+
 
   @override
   void dispose() {
@@ -104,6 +107,12 @@ class _FloatingNavBarState extends State<FloatingNavBar> with SingleTickerProvid
                   icon: Icons.person_rounded,
                   label: 'Social',
                   activeIcon: Icons.person_rounded,
+                ),
+                _buildNavItem(
+                  index: 5,
+                  icon: Icons.newspaper_rounded,
+                  label: 'News',
+                  activeIcon: Icons.newspaper_rounded,
                 ),
               ],
             ),

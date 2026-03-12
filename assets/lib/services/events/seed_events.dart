@@ -8,6 +8,25 @@ Future<void> seedFBLAEvents() async {
     print('Events already seeded. Skipping...');
     return;
   }
+  try {
+    final firestore = FirebaseFirestore.instance;
+
+    // Check if events already exist
+    final existing = await firestore.collection('events').limit(1).get();
+    if (existing.docs.isNotEmpty) {
+      print('Events already seeded. Skipping...');
+      return;
+    }
+
+    // ... rest of your seeding code (add events)
+
+    print('All sample events seeded!');
+  } catch (e, stackTrace) {
+    print('❌ Error in seedFBLAEvents: $e');
+    print('Stack trace: $stackTrace');
+    // Optionally rethrow if you want the app to crash
+    // rethrow;
+  }
 
   final events = [
     {

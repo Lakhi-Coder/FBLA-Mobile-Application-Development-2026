@@ -275,7 +275,7 @@ class _SignupTabState extends State<SignupTab> {
             hint: Text('Grade Level', 
               style: TextStyle(color: proffessionalBlack.withAlpha(150))
             ),
-            items: ['9', '10', '11', '12'].map((grade) {
+            items: ['6', '7', '8', '9', '10', '11', '12'].map((grade) {
               return DropdownMenuItem(
                 value: grade, 
                 child: Text(grade)

@@ -1,4 +1,5 @@
 import 'package:fbla_connect/entities/widgets/clickable_Surfaces/floating_navbar.dart';
+import 'package:fbla_connect/tabs/news_tab.dart';
 import 'package:fbla_connect/tabs/social_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:fbla_connect/tabs/home_tab.dart';
@@ -22,6 +23,7 @@ class _MainNavigationState extends State<MainNavigation> {
     const ResourcesTab(),
     const ProfileTab(),
     const SocialTab(), 
+    const NewsTab(),
   ];
 
   @override

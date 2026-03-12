@@ -20,6 +20,7 @@ class _CalendarTabState extends State<CalendarTab> {
   DateTime? _selectedDay;
   Map<DateTime, List<FBLAEvent>> _eventsByDay = {};
   String _selectedFilter = 'All';
+  bool _showOnlyUpcoming = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,33 @@ class _CalendarTabState extends State<CalendarTab> {
         children: [
           SizedBox(height: 48),
           _buildFilterChips(),
-          
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  _showOnlyUpcoming ? 'Showing upcoming' : 'Showing all events',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey[600],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Switch(
+                  value: !_showOnlyUpcoming,
+                  onChanged: (value) {
+                    setState(() {
+                      _showOnlyUpcoming = !value;
+                    });
+                  },
+                  activeColor: uniqueTertiaryColor,
+                  activeTrackColor: uniqueTertiaryColor.withAlpha(50),
+                ),
+              ],
+            ),
+          ), 
+
           Expanded(
             child: Consumer<EventService>(
               builder: (context, eventService, child) {
@@ -151,8 +178,10 @@ class _CalendarTabState extends State<CalendarTab> {
   }
 
   Stream<List<FBLAEvent>> _getFilteredStream(EventService service) {
-    if (_selectedFilter == 'All') {
-      return service.getUpcomingEvents();
+    if (_selectedFilter == 'All') { 
+      return _showOnlyUpcoming 
+          ? service.getUpcomingEvents() 
+          : service.getAllEvents();
     } else {
       return service.getEventsByType(_selectedFilter);
     }

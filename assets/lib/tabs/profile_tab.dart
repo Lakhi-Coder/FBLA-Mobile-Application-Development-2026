@@ -93,7 +93,6 @@ class _ProfileTabState extends State<ProfileTab> {
         ),
         const SizedBox(height: 16),
 
-        // Search for users to manage
         TextField(
           decoration: InputDecoration(
             hintText: 'Search users by name or email...',
@@ -303,7 +302,7 @@ class _ProfileTabState extends State<ProfileTab> {
             _chapterNumberController.text = userData.chapterNumber;
             _chapterNameController.text = userData.chapterName ?? '';
             _gradeLevelController.text = userData.gradeLevel;
-            _selectedRole = userData.role;
+            _selectedRole = userData.role; 
             
             final prefs = userData.notificationPreferences;
             _eventReminders = prefs['eventReminders'] ?? true;

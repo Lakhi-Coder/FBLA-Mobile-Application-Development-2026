@@ -1,8 +1,10 @@
 import 'package:fbla_connect/entities/color_pallete.dart';
 import 'package:fbla_connect/firebase_options.dart';
 import 'package:fbla_connect/services/authentication/auth_check.dart';
-import 'package:fbla_connect/services/events/events.dart'; 
+import 'package:fbla_connect/services/events/events.dart';
+import 'package:fbla_connect/services/events/seed_announcements.dart'; 
 import 'package:fbla_connect/services/events/seed_events.dart';
+import 'package:fbla_connect/services/notification/notification_services.dart';
 import 'package:fbla_connect/tabs/calendar_tab.dart';
 import 'package:fbla_connect/tabs/getstarted_tab.dart';
 import 'package:fbla_connect/tabs/main_navigation.dart';
@@ -16,6 +18,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform, 
@@ -24,7 +27,13 @@ void main() async {
   } catch (e) {
     print("Firebase initialization error: $e"); 
   }
+  
+  await seedAnnouncements(); 
   await seedFBLAEvents();
+  
+  final notificationService = NotificationService();
+  await notificationService.initialize();
+
   runApp(const FblaMobileApp()); 
 }
 
