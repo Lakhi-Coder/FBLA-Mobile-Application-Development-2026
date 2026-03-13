@@ -55,7 +55,7 @@ We created a system that mirrors real chapter operations with **role-based acces
 - Filter events by type: competition, meeting, workshop, social, service, fundraiser
 - Toggle between **all events** and **only upcoming events**
 
-#### 🔔 Local Notifications (Reminders)
+#### Local Notifications (Reminders)
 
 - Immediate confirmation after registration
 - 24-hour reminder before the event
@@ -64,7 +64,7 @@ We created a system that mirrors real chapter operations with **role-based acces
 
 > All notifications are scheduled locally and work offline – no paid Apple account required.
 
-### 📚 Resource Library
+### Resource Library
 
 - Official FBLA 2025–2026 documents: competitive event guidelines, national bylaws, rating sheets
 - Categorized resources for:
