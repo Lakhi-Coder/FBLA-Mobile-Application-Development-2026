@@ -275,7 +275,7 @@ flutter run
 
 This project is created for educational purposes as part of the FBLA Mobile Application Development competition. It is not intended for commercial use.
 
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE.txt) file for details.
 
 ---
 
