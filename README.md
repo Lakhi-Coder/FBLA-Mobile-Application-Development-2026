@@ -246,10 +246,6 @@ flutter run
 |---|---|
 | iPhone 15 Pro | iOS 17 |
 | Pixel 8 | Android 14 |
-| iPad Air | iPadOS 17 |
-| Chrome | Web (latest) |
-
----
 
 ## Future Enhancements
 
